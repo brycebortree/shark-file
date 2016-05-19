@@ -1,0 +1,7 @@
+I"”(function() {
+  PrivatePub.subscribe("/messages/new", function(data, channel) {
+    return console.log(data.message.content);
+  });
+
+}).call(this);
+:ET

@@ -1,0 +1,13 @@
+<section id="taskcreate">
+<%= bootstrap_form_for @task do |f| %>
+  <%= f.text_field :title %>
+  <%= f.text_field :status %>
+  <div class="field">
+      <%= f.select :user_id, User.all.sort.collect { |p| [ p.email, p.id ] } %>
+  </div>
+  <div class="field">
+      <%= f.select :project_id, Project.all.sort.collect { |p| [ p.title, p.id ] } %>
+  </div>
+  <%= f.primary %>
+<% end %>
+</section>

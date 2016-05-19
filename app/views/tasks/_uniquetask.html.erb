@@ -1,0 +1,36 @@
+<%= link_to 'All Tasks', tasks_path %>
+<h1>My Tasks</h1>
+
+<table>
+  <tr>
+    <th>Task</th>
+    <th>User</th>		
+    <th>Project</th>
+    <th>Status</th>
+    <th>Modify</th>
+  </tr>
+<% @tasks.sort_by{ |t| [t.status, t.project.title, t.title] }.each do |task| %>
+	<% if current_user.email == task.user.email %>
+  <tr>
+    <td><%= task.title %></td>
+    <td><%= task.user.email %></td>		
+    <td><%= task.project.title %></td>
+    <td><%= task.status %></td>
+    <td>
+    	<%= link_to 'Edit', edit_task_path(task) %>
+    	<%= link_to 'Delete', task, method: :delete %>
+    </td>
+  </tr>
+	  <% else %>
+	  <% end %>
+  <% end %>
+</table>
+<br><br>
+<hr>
+
+<div class="container">
+  <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo">New Task</button>
+  <div id="demo" class="collapse">
+<%= render 'tasks/create' %>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+// Place all the styles related to the video controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+#my-video {
+	max-width: 150px;
+	max-height: 150px;
+	margin-left: -190px;
+	margin-top: -180px;
+}
+
+.button-success {
+    background: rgb(28, 184, 65); /* this is a green */
+}
+
+.button-error {
+    background: rgb(202, 60, 60); /* this is a maroon */
+}
